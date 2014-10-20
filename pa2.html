@@ -1,0 +1,82 @@
+<html>
+<head>
+<title>CIS Programming Assignment 2</title>
+</head>
+<body>
+<pre>
+
+===Programming Assignment 2 - Correcting Distortion and CT to Real World Registration===
+
+Authors:  Alperen Degirmenci (B.S. MechE '12), Saumya Gurbani (B.S. BME / AMS'12)
+Contact:  alperen [at] jhu [dot] edu
+	 sgurbani [at] jhu [dot] edu
+		 
+Course:   Computer Integrated Surgery, EN.600.445
+	  Professor Russ Taylor
+	  Fall 2010
+	  http://www.cisst.org/~cista/445/445-schedule-2010.html
+
+Copyright 2010 Johns Hopkins University.
+
+This code package may be found online at <a href="http://code.sgurbani.com/cis/source/pa1-2/">http://code.sgurbani.com/cis/source/pa1-2/</a>
+no earlier than the submission date for PA2 (on or after November 4, 2010).
+
+
+--OVERVIEW--
+
+The purpose of this assignment was to update the code package to calculate a distortion function for the EM tracker space.
+Then, we use the undistorted space to register CT images w.r.t. real world using fiducials. 
+The full details of the assignment can be found in the following PDF: <a href="ProgrammingAssignments1and2.pdf">ProgrammingAssignments1and2</a>.
+
+Our paper, explaining our work on this assignment, can be found in the following PDF: <a href="report/PA2.pdf">PA2.pdf</a>.
+
+
+--PROGRAM STRUCTURE--
+
+Uses the following 17 files located in the /source/ directory.
+
+-point3D.m 			- struct defining a 3-dim point
+-rotate3D.m 			- applies a frame rotation to a point in space
+-frame3D.m 			- defines a frame transformation (rotate + translate)
+-inverseFrame3D.m 		- calculates the inverse transformation of a given one
+-transform3D.m 			- performs a frame transformation between 2 points
+-register3D.m 			- performs a series of frame transformations
+-getTransformation.m 		- calculates the transformation between 2 point clouds
+-EMCalibration.m 		- determine the position of dimple relative to EM tracker
+-OptCalibration.m 		- determine the position of dimple rel. to Opt tracker
+-readCalBody.m 			- reads in the CalBody.txt files
+-readCalReadings.m 		- reads in the CalReadings.txt files
+-readEMpivot.m 			- read in the empivot.txt files
+-readOptPivot.m 		- read in the optpivot.txt files
+-readCTFiducials.m		- read in the -ct-fiducials.txt files
+-getCorrection.m		- calculates the distortion function between a distorted and expected data set
+-applyCorrection.m		- applies a distortion function to a distorted data set
+-p2Driver.m 			- A MATLAB script file to run the program
+
+
+--INPUT / OUTPUT--
+
+Input files are located in the /input/ directory.
+
+Input files should be of the form "pa1-debug-X-TYPE.txt" or "pa1-unknown-X-TYPE.txt", where X is the letter of the 
+data set and TYPE is the type of input data (calreadings, calbody, etc). The form "pa1-debug-" will be used if a corresponding "pa1-debug-X-output1.txt"
+is found, otherwise the "pa1-unknown-" form will be used.
+
+Output: creates two files named "pa1-X-output1.txt" and "pa1-X-output2.txt" in the /output/ directory for every input data set, 
+where X is the letter of the data set.
+
+
+--EXECUTING PROGRAM--
+
+The script file p2Driver.m located in /source/pa1-2/ is to be run from the MATLAB command window.
+
+
+--REPORT--
+
+The <a href="report">report/</a> directory contains our programming journal and reports.
+The <a href="report/related_papers">report/related_papers/</a> directory contains PDFs of journal articles we cite and use for our program.
+
+<a href="index.html">Return to Main Page</a>
+</pre>
+</body>
+</html>
